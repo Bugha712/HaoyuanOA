@@ -212,6 +212,104 @@
     </div>
     <PerformanceAssessmentDimensionForm ref="dimensionFormRef" @confirm="handleDimensionConfirm" />
   </template>
+
+  <div class="mt-24px">
+    <div class="mb-12px flex items-center justify-between">
+      <div>
+        <span class="font-600">加减分项</span>
+        <span class="ml-16px text-13px text-gray-500">
+          评估流程完成后，在考核得分基础上按下列规则加减分
+        </span>
+      </div>
+      <el-button :disabled="disabled" type="primary" @click="addBonusPenaltyItem">
+        <Icon icon="ep:plus" class="mr-5px" /> 新增加减分项
+      </el-button>
+    </div>
+    <el-empty
+      v-if="!model.bonusPenaltyItems?.length"
+      :image-size="60"
+      description="暂无加减分项"
+    />
+    <el-table
+      v-else
+      :data="model.bonusPenaltyItems"
+      border
+      empty-text="暂无加减分项"
+    >
+      <el-table-column label="类型" width="90">
+        <template #default="scope">
+          <el-select v-model="scope.row.type" :disabled="disabled" class="!w-1/1">
+            <el-option
+              v-for="option in HrmPerformanceBonusPenaltyTypeOptions"
+              :key="option.value"
+              :label="option.label"
+              :value="option.value"
+            />
+          </el-select>
+        </template>
+      </el-table-column>
+      <el-table-column label="名称" min-width="180">
+        <template #default="scope">
+          <el-input
+            v-model="scope.row.name"
+            :disabled="disabled"
+            maxlength="50"
+            placeholder="请输入加减分项名称"
+          />
+        </template>
+      </el-table-column>
+      <el-table-column label="分数范围" width="220">
+        <template #default="scope">
+          <div class="flex items-center gap-6px">
+            <span class="w-16px text-14px">
+              {{ scope.row.type === HrmPerformanceBonusPenaltyType.DEDUCT ? '-' : '+' }}
+            </span>
+            <el-input-number
+              v-model="scope.row.minScore"
+              :controls="false"
+              :disabled="disabled"
+              :min="0"
+              :precision="0"
+              class="!w-1/1"
+              placeholder="最低分"
+            />
+            <span class="text-gray-500">~</span>
+            <el-input-number
+              v-model="scope.row.maxScore"
+              :controls="false"
+              :disabled="disabled"
+              :min="0"
+              :precision="0"
+              class="!w-1/1"
+              placeholder="最高分"
+            />
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column label="备注" min-width="160">
+        <template #default="scope">
+          <el-input
+            v-model="scope.row.remark"
+            :disabled="disabled"
+            maxlength="100"
+            placeholder="请输入备注（可选）"
+          />
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" align="center" width="80">
+        <template #default="scope">
+          <el-button
+            :disabled="disabled"
+            link
+            type="danger"
+            @click="removeBonusPenaltyItem(scope.$index)"
+          >
+            删除
+          </el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -221,11 +319,14 @@ import type {
 } from '@/api/hrm/performance/config/assessment-template'
 import { DICT_TYPE, getIntDictOptions } from '@/utils/dict'
 import {
+  HrmPerformanceBonusPenaltyType,
+  HrmPerformanceBonusPenaltyTypeOptions,
   HrmPerformanceQuotaScoreType,
   HrmPerformanceQuotaType,
   HrmPerformanceUpperLimitType
 } from '@/views/hrm/utils/constants'
 import {
+  createDefaultBonusPenaltyItem,
   getQuotaWeightTotal,
   isHundred,
   validateAssessmentConfig
@@ -316,6 +417,17 @@ function addQuota(dimensionIndex: number) {
 /** 删除考核指标 */
 function removeQuota(dimensionIndex: number, quotaIndex: number) {
   model.value.dimensions?.[dimensionIndex]?.quotas?.splice(quotaIndex, 1)
+}
+
+/** 新增加减分项 */
+function addBonusPenaltyItem() {
+  model.value.bonusPenaltyItems ||= []
+  model.value.bonusPenaltyItems.push(createDefaultBonusPenaltyItem())
+}
+
+/** 删除加减分项 */
+function removeBonusPenaltyItem(index: number) {
+  model.value.bonusPenaltyItems?.splice(index, 1)
 }
 
 defineExpose({ validate }) // 提供 validate 方法，用于校验表单

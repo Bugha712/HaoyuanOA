@@ -1,6 +1,7 @@
 import request from '@/config/axios'
 import type {
   PerformanceAssessmentVO,
+  PerformanceBonusPenaltyRecordVO,
   PerformanceProcessRecordVO,
   PerformanceReviewRejectReqVO,
   PerformanceScorePreviewVO
@@ -107,6 +108,7 @@ export interface PerformanceReviewScoreReqVO {
   selfComment?: string // 自评说明
   reviewerComment?: string // 评分人说明
   quotas: PerformanceAssessmentQuotaSaveVO[] // 指标列表
+  bonusPenaltyRecords?: PerformanceBonusPenaltyRecordVO[] // 加减分记录
 }
 
 // 员工端绩效指标填写 Request VO

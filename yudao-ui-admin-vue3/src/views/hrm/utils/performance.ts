@@ -3,6 +3,7 @@ import type {
   AssessmentDimensionVO
 } from '@/api/hrm/performance/config/assessment-template'
 import {
+  HrmPerformanceBonusPenaltyType,
   HrmPerformanceScoreCalculation,
   HrmPerformanceUpperLimitType
 } from '@/views/hrm/utils/constants'
@@ -14,7 +15,8 @@ export function createDefaultAssessmentConfig(): AssessmentConfigVO {
     scoreCalculation: HrmPerformanceScoreCalculation.WEIGHTED,
     upperLimitType: HrmPerformanceUpperLimitType.UNIFIED,
     upperLimitScore: 100,
-    dimensions: []
+    dimensions: [],
+    bonusPenaltyItems: []
   }
 }
 
@@ -77,6 +79,46 @@ export function validateAssessmentConfig(config?: AssessmentConfigVO) {
   if (!isHundred(dimensionTotalWeight)) {
     return '维度权重总和必须等于 100%'
   }
+  // 校验加减分项配置
+  const bonusPenaltyItems = config?.bonusPenaltyItems || []
+  const bonusPenaltyKeys = new Set<string>()
+  for (const item of bonusPenaltyItems) {
+    const itemName = item.name?.trim()
+    const itemKey = item.key?.trim()
+    if (!itemKey) {
+      return '加减分项标识不能为空'
+    }
+    if (!itemName) {
+      return '加减分项名称不能为空'
+    }
+    if (bonusPenaltyKeys.has(itemKey)) {
+      return `加减分项标识（${itemKey}）重复`
+    }
+    bonusPenaltyKeys.add(itemKey)
+    if (item.type !== HrmPerformanceBonusPenaltyType.BONUS && item.type !== HrmPerformanceBonusPenaltyType.DEDUCT) {
+      return `加减分项（${itemName}）类型只能为加分或减分`
+    }
+    const minScore = Number(item.minScore)
+    const maxScore = Number(item.maxScore)
+    if (!Number.isFinite(minScore) || !Number.isFinite(maxScore)) {
+      return `加减分项（${itemName}）分数范围必须为数字`
+    }
+    if (minScore < 0 || maxScore < minScore) {
+      return `加减分项（${itemName}）分数范围为最低分数应大于等于 0，且最高分数不低于最低分数`
+    }
+  }
+}
+
+/** 创建默认加减分项 */
+export function createDefaultBonusPenaltyItem() {
+  return {
+    key: `bp_${Date.now()}`,
+    type: HrmPerformanceBonusPenaltyType.BONUS,
+    name: '',
+    minScore: 1,
+    maxScore: 5,
+    remark: ''
+  }
 }
 
 /** 复制考核配置，避免计划编辑影响原模板数据 */
@@ -89,7 +131,8 @@ export function cloneAssessmentConfig(config: AssessmentConfigVO): AssessmentCon
     dimensions: (config.dimensions || []).map((dimension) => ({
       ...dimension,
       quotas: (dimension.quotas || []).map((quota) => ({ ...quota }))
-    }))
+    })),
+    bonusPenaltyItems: (config.bonusPenaltyItems || []).map((item) => ({ ...item }))
   }
 }
 

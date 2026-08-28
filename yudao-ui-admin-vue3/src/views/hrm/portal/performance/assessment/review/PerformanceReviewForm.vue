@@ -84,6 +84,16 @@
             {{ scorePreview.cumulativeResultLevel }}
           </el-tag>
         </div>
+        <div class="flex items-center gap-8px">
+          <span class="text-13px text-[var(--el-text-color-secondary)]">加减分</span>
+          <strong :class="(scorePreview.bonusPenaltySubtotal || 0) < 0 ? 'text-[var(--el-color-danger)]' : 'text-[var(--el-color-success)]'">
+            {{ formatSignedScore(scorePreview.bonusPenaltySubtotal) }}
+          </strong>
+        </div>
+        <div v-if="scorePreview.finalScorePreview !== null && scorePreview.finalScorePreview !== undefined" class="flex items-center gap-8px">
+          <span class="text-13px text-[var(--el-text-color-secondary)]">最终得分</span>
+          <strong>{{ scorePreview.finalScorePreview }} 分</strong>
+        </div>
       </div>
 
       <el-alert
@@ -133,6 +143,67 @@
         :placeholder="currentStage?.raterType === 4 ? '自评说明' : '评分说明'"
         show-word-limit
       />
+
+      <div v-if="detail.bonusPenaltyItems?.length" class="mt-20px">
+        <div class="mb-12px">
+          <span class="font-600">加减分</span>
+          <span class="ml-16px text-13px text-gray-500">
+            评估流程完成后，在考核得分基础上按下列规则加减分（0 分表示不适用）
+          </span>
+        </div>
+        <el-table
+          :data="detail.bonusPenaltyItems"
+          border
+          empty-text="暂无加减分项"
+        >
+          <el-table-column label="类型" width="70">
+            <template #default="scope">
+              <el-tag :type="scope.row.type === HrmPerformanceBonusPenaltyType.DEDUCT ? 'danger' : 'success'" effect="plain">
+                {{ scope.row.type === HrmPerformanceBonusPenaltyType.DEDUCT ? '减分' : '加分' }}
+              </el-tag>
+            </template>
+          </el-table-column>
+          <el-table-column label="名称" min-width="150">
+            <template #default="scope">
+              <div>{{ scope.row.name }}</div>
+              <div v-if="scope.row.remark" class="mt-4px text-12px text-gray-500">
+                {{ scope.row.remark }}
+              </div>
+            </template>
+          </el-table-column>
+          <el-table-column label="可加/减分数" width="140">
+            <template #default="scope">
+              <span class="text-13px">
+                {{ scope.row.type === HrmPerformanceBonusPenaltyType.DEDUCT ? `-${scope.row.maxScore} ~ -${scope.row.minScore}` : `${scope.row.minScore} ~ ${scope.row.maxScore}` }}
+              </span>
+            </template>
+          </el-table-column>
+          <el-table-column label="本次分值" width="160">
+            <template #default="scope">
+              <el-input-number
+                :model-value="proxyGetAbsScore(scope.$index)"
+                :min="0"
+                :max="Math.max(scope.row.maxScore || 0, 0)"
+                :precision="1"
+                :controls="false"
+                class="!w-1/1"
+                @update:model-value="proxySetScore(scope.$index, $event)"
+                @change="schedulePreview"
+              />
+            </template>
+          </el-table-column>
+          <el-table-column label="加减分说明" min-width="180">
+            <template #default="scope">
+              <el-input
+                :model-value="bonusRows[scope.$index]?.reason"
+                maxlength="500"
+                placeholder="请输入加减分说明（可选）"
+                @update:model-value="(value: any) => (bonusRows[scope.$index]!.reason = value)"
+              />
+            </template>
+          </el-table-column>
+        </el-table>
+      </div>
     </div>
 
     <template #footer>
@@ -153,10 +224,14 @@
 
 <script lang="ts" setup>
 import { useDebounceFn } from '@vueuse/core'
-import type { PerformanceScorePreviewVO } from '@/api/hrm/performance/assessment'
+import type {
+  PerformanceBonusPenaltyRecordVO,
+  PerformanceScorePreviewVO
+} from '@/api/hrm/performance/assessment'
 import * as PerformanceAssessmentApi from '@/api/hrm/portal/performance/assessment'
 import {
   HrmPerformanceAssessmentStageStatus,
+  HrmPerformanceBonusPenaltyType,
   HrmPerformanceRaterType
 } from '@/views/hrm/utils/constants'
 
@@ -169,6 +244,7 @@ const submitting = ref(false) // 提交中
 const detail = ref<PerformanceAssessmentApi.PortalPerformanceAssessmentVO>({}) // 详情数据
 const stageComment = ref('') // 阶段评语
 const scorePreview = ref<PerformanceScorePreviewVO>() // 分数预览
+const bonusRows = ref<PerformanceBonusPenaltyRecordVO[]>([]) // 加减分记录（score 为带符号分值）
 const currentStage = computed(() => detail.value.currentReviewStage) // 当前评分阶段
 const canReject = computed(
   () =>
@@ -196,6 +272,7 @@ async function open(assessmentId?: number, stageId?: number) {
   loading.value = true
   stageComment.value = ''
   scorePreview.value = undefined
+  bonusRows.value = []
   try {
     // 获取表单数据
     detail.value = await PerformanceAssessmentApi.getPerformanceAssessment(assessmentId, stageId)
@@ -209,6 +286,7 @@ async function open(assessmentId?: number, stageId?: number) {
     detail.value.quotas?.forEach((quota) => {
       quota.finalScore = scoreMap.get(quota.id)
     })
+    initBonusRows()
     schedulePreview()
   } finally {
     loading.value = false
@@ -235,7 +313,8 @@ async function previewScore() {
     scorePreview.value = await PerformanceAssessmentApi.previewPerformanceAssessmentScore({
       assessmentId: detail.value.id,
       reviewStageId: stage.id,
-      quotas: quotaList
+      quotas: quotaList,
+      bonusPenaltyRecords: collectBonusPenaltyRecords()
     })
   } catch {
     scorePreview.value = undefined
@@ -301,7 +380,8 @@ async function submitReview() {
         stage.raterType === HrmPerformanceRaterType.SELF ? stageComment.value.trim() : undefined,
       reviewerComment:
         stage.raterType === HrmPerformanceRaterType.SELF ? undefined : stageComment.value.trim(),
-      quotas: quotaList
+      quotas: quotaList,
+      bonusPenaltyRecords: collectBonusPenaltyRecords()
     })
     message.success('当前阶段评分已提交')
     drawerVisible.value = false
@@ -310,6 +390,49 @@ async function submitReview() {
   } finally {
     submitting.value = false
   }
+}
+
+/** 初始化加减分记录 */
+function initBonusRows() {
+  const items = detail.value.bonusPenaltyItems || []
+  const records = detail.value.bonusPenaltyRecords || []
+  const recordMap = new Map(records.map((record) => [record.key, record]))
+  bonusRows.value = items.map((item) => ({
+    key: item.key,
+    score: recordMap.get(item.key)?.score || 0,
+    reason: recordMap.get(item.key)?.reason || ''
+  }))
+}
+
+/** 获取某一行加减分数的绝对值（用于输入框展示） */
+function proxyGetAbsScore(index: number) {
+  return Math.abs(bonusRows.value[index]?.score || 0)
+}
+
+/** 写入某一行加减分数；减分项存储为负数 */
+function proxySetScore(index: number, value: number | undefined | null) {
+  const item = detail.value.bonusPenaltyItems?.[index]
+  const row = bonusRows.value[index]
+  if (!item || !row) {
+    return
+  }
+  const abs = Number(value) || 0
+  row.score = item.type === HrmPerformanceBonusPenaltyType.DEDUCT ? -abs : abs
+}
+
+/** 收集有效的加减分记录（分值为 0 的记录不出入提交） */
+function collectBonusPenaltyRecords(): PerformanceBonusPenaltyRecordVO[] {
+  return bonusRows.value
+    .filter((record) => record.score && record.score !== 0)
+    .map((record) => ({ key: record.key, score: record.score, reason: record.reason?.trim() || undefined }))
+}
+
+/** 格式化带符号分数 */
+function formatSignedScore(score?: number) {
+  if (score === undefined || score === null) {
+    return '-'
+  }
+  return `${score > 0 ? '+' : ''}${score} 分`
 }
 </script>
 

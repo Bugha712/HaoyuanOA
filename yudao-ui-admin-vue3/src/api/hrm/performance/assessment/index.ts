@@ -77,6 +77,23 @@ export interface PerformanceAssessmentDimensionVO {
   sort?: number // 排序
 }
 
+// 绩效加减分记录 VO
+export interface PerformanceBonusPenaltyRecordVO {
+  key?: string // 加减分项标识
+  score?: number // 加减分值（加分正数、减分负数）
+  reason?: string // 加减分说明
+}
+
+// 绩效加减分项 VO
+export interface PerformanceBonusPenaltyItemVO {
+  key?: string // 唯一标识
+  type?: number // 加减分类型
+  name?: string // 名称
+  minScore?: number // 最低可加/减分数
+  maxScore?: number // 最高可加/减分数
+  remark?: string // 备注
+}
+
 // 员工绩效考核 VO
 export interface PerformanceAssessmentVO {
   id?: number // 员工绩效考核编号
@@ -104,6 +121,9 @@ export interface PerformanceAssessmentVO {
   score?: number // 绩效得分
   resultLevel?: string // 结果等级
   coefficient?: number // 绩效系数
+  bonusPenaltyItems?: PerformanceBonusPenaltyItemVO[] // 加减分项配置
+  bonusPenaltyRecords?: PerformanceBonusPenaltyRecordVO[] // 加减分记录
+  bonusPenaltyTotal?: number // 加减分小计
   targetConfirmationEmployeeName?: string // 目标确认员工姓名
   targetConfirmationResult?: number // 目标确认结果
   targetConfirmationComment?: string // 目标确认意见
@@ -169,6 +189,8 @@ export interface PerformanceScorePreviewVO {
   stageResultLevel?: string // 当前阶段结果等级
   cumulativeScore?: number // 当前累计得分
   cumulativeResultLevel?: string // 当前累计结果等级，全部评分阶段完成时返回
+  bonusPenaltySubtotal?: number // 加减分小计
+  finalScorePreview?: number // 含加减分的预估总得分，全部评分阶段完成时返回
 }
 
 // 绩效评分驳回 Request VO

@@ -130,7 +130,8 @@ function createDefaultFormData(): PerformanceAssessmentTemplateApi.AssessmentTem
     scoreCalculation: HrmPerformanceScoreCalculation.WEIGHTED,
     upperLimitType: HrmPerformanceUpperLimitType.UNIFIED,
     upperLimitScore: 100,
-    dimensions: []
+    dimensions: [],
+    bonusPenaltyItems: []
   }
 }
 </script>

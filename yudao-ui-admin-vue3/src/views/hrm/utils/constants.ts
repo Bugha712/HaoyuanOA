@@ -911,6 +911,18 @@ export const HrmPerformanceUpperLimitType = {
   UNIFIED: 1 // 统一上限
 } as const
 
+/** 绩效加减分类型（对齐后端 HrmPerformanceBonusPenaltyTypeEnum） */
+export const HrmPerformanceBonusPenaltyType = {
+  BONUS: 1, // 加分
+  DEDUCT: 2 // 减分
+} as const
+
+/** 绩效加减分类型选项 */
+export const HrmPerformanceBonusPenaltyTypeOptions = [
+  { label: '加分', value: HrmPerformanceBonusPenaltyType.BONUS },
+  { label: '减分', value: HrmPerformanceBonusPenaltyType.DEDUCT }
+] as const
+
 /** 绩效评分人类型（对齐后端 HrmPerformanceRaterTypeEnum） */
 export const HrmPerformanceRaterType = {
   SUPERIOR: 1, // 上级

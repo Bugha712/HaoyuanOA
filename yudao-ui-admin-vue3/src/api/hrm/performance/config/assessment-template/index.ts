@@ -19,6 +19,16 @@ export interface AssessmentDimensionVO {
   quotas?: AssessmentQuotaVO[] // 考核指标列表
 }
 
+// 绩效考核加减分项 VO
+export interface AssessmentBonusPenaltyItemVO {
+  key?: string // 唯一标识
+  type?: number // 加减分类型：HrmPerformanceBonusPenaltyType
+  name?: string // 名称
+  minScore?: number // 最低可加/减分数（正数）
+  maxScore?: number // 最高可加/减分数（正数）
+  remark?: string // 备注
+}
+
 // 绩效考核配置 VO
 export interface AssessmentConfigVO {
   name: string // 模板名称
@@ -26,6 +36,7 @@ export interface AssessmentConfigVO {
   upperLimitType: number // 分数上限类型
   upperLimitScore: number // 分数上限
   dimensions?: AssessmentDimensionVO[] // 考核维度列表
+  bonusPenaltyItems?: AssessmentBonusPenaltyItemVO[] // 加减分项列表
 }
 
 // 绩效考核模板 VO
