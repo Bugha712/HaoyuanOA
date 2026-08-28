@@ -14,6 +14,7 @@ import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -167,5 +168,38 @@ public class HrmPerformanceAssessmentDO extends BaseDO {
      * 归档时间
      */
     private LocalDateTime archiveTime;
+
+    /**
+     * 加减分记录
+     */
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private List<BonusPenaltyRecord> bonusPenaltyRecords;
+    /**
+     * 加减分小计
+     */
+    private BigDecimal bonusPenaltyTotal;
+
+    /**
+     * 加减分记录
+     */
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class BonusPenaltyRecord {
+
+        /**
+         * 加减分项标识（对应模板加减分项 key）
+         */
+        private String key;
+        /**
+         * 实际加减分值（加分正数、减分负数）
+         */
+        private BigDecimal score;
+        /**
+         * 说明
+         */
+        private String reason;
+    }
 
 }

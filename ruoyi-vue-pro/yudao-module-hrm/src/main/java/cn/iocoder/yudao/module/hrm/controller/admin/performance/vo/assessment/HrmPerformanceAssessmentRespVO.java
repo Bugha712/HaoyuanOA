@@ -1,5 +1,7 @@
 package cn.iocoder.yudao.module.hrm.controller.admin.performance.vo.assessment;
 
+import cn.iocoder.yudao.module.hrm.dal.dataobject.performance.assessment.HrmPerformanceAssessmentDO;
+import cn.iocoder.yudao.module.hrm.dal.dataobject.performance.config.HrmPerformanceAssessmentTemplateDO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -85,6 +87,15 @@ public class HrmPerformanceAssessmentRespVO {
 
     @Schema(description = "绩效系数")
     private BigDecimal coefficient;
+
+    @Schema(description = "加减分项配置")
+    private List<HrmPerformanceAssessmentTemplateDO.BonusPenaltyItem> bonusPenaltyItems;
+
+    @Schema(description = "加减分记录")
+    private List<HrmPerformanceAssessmentDO.BonusPenaltyRecord> bonusPenaltyRecords;
+
+    @Schema(description = "加减分小计")
+    private BigDecimal bonusPenaltyTotal;
 
     @Schema(description = "目标确认员工姓名")
     private String targetConfirmationEmployeeName;

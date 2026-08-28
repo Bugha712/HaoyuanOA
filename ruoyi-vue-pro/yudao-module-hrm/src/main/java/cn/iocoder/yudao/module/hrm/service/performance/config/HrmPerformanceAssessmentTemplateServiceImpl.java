@@ -1,6 +1,7 @@
 package cn.iocoder.yudao.module.hrm.service.performance.config;
 
 import cn.iocoder.yudao.module.hrm.service.performance.plan.HrmPerformancePlanService;
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.iocoder.yudao.framework.common.enums.CommonStatusEnum;
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
@@ -171,6 +172,14 @@ public class HrmPerformanceAssessmentTemplateServiceImpl implements HrmPerforman
             }
         }
         template.setDimensionCount(template.getDimensions().size()).setQuotaCount(quotaCount);
+        // 3. 规范化加减分项
+        if (CollUtil.isNotEmpty(template.getBonusPenaltyItems())) {
+            template.getBonusPenaltyItems().forEach(item -> {
+                item.setKey(StringUtils.trimToNull(item.getKey()))
+                        .setName(StringUtils.trimToNull(item.getName()))
+                        .setRemark(StringUtils.trimToNull(item.getRemark()));
+            });
+        }
     }
 
 }

@@ -21,4 +21,10 @@ public class HrmPortalPerformanceScorePreviewRespVO {
     @Schema(description = "当前累计结果等级；全部评分阶段完成时返回")
     private String cumulativeResultLevel;
 
+    @Schema(description = "加减分小计")
+    private BigDecimal bonusPenaltySubtotal;
+
+    @Schema(description = "含加减分的预估总得分；全部评分阶段完成时返回")
+    private BigDecimal finalScorePreview;
+
 }

@@ -8,6 +8,7 @@ import cn.iocoder.yudao.module.hrm.enums.performance.plan.HrmPerformanceQuotaSco
 import cn.iocoder.yudao.module.hrm.enums.performance.config.HrmPerformanceQuotaTypeEnum;
 import cn.iocoder.yudao.module.hrm.enums.performance.config.HrmPerformanceScoreCalculationEnum;
 import cn.iocoder.yudao.module.hrm.enums.performance.config.HrmPerformanceUpperLimitTypeEnum;
+import cn.iocoder.yudao.module.hrm.enums.performance.config.HrmPerformanceBonusPenaltyTypeEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.Valid;
@@ -63,6 +64,10 @@ public class HrmPerformanceAssessmentTemplateSaveReqVO {
     @Valid
     @NotEmpty(message = "至少需要一个考核维度")
     private List<@NotNull(message = "考核维度不能为空") Dimension> dimensions;
+
+    @Schema(description = "加减分项列表")
+    @Valid
+    private List<BonusPenaltyItem> bonusPenaltyItems;
 
     @AssertTrue(message = "考核维度名称不能重复")
     @JsonIgnore
@@ -229,6 +234,38 @@ public class HrmPerformanceAssessmentTemplateSaveReqVO {
         @NotNull(message = "评分类型不能为空")
         @InEnum(value = HrmPerformanceQuotaScoreTypeEnum.class, message = "评分类型必须是 {value}")
         private Integer scoreType;
+    }
+
+    @Schema(description = "管理后台 - HRM 绩效考核模板加减分项")
+    @Data
+    public static class BonusPenaltyItem {
+
+        @Schema(description = "唯一标识", requiredMode = Schema.RequiredMode.REQUIRED, example = "bp_001")
+        @NotBlank(message = "加减分项标识不能为空")
+        @Size(max = 64, message = "加减分项标识不能超过 64 个字符")
+        private String key;
+
+        @Schema(description = "加减分类型", requiredMode = Schema.RequiredMode.REQUIRED, example = "1")
+        @NotNull(message = "加减分类型不能为空")
+        @InEnum(value = HrmPerformanceBonusPenaltyTypeEnum.class, message = "加减分类型必须是 {value}")
+        private Integer type;
+
+        @Schema(description = "名称", requiredMode = Schema.RequiredMode.REQUIRED, example = "获得宾客书面表扬")
+        @NotBlank(message = "加减分项名称不能为空")
+        @Size(max = 200, message = "加减分项名称不能超过 200 个字符")
+        private String name;
+
+        @Schema(description = "最低可加/减分数", requiredMode = Schema.RequiredMode.REQUIRED, example = "3")
+        @NotNull(message = "最低分数不能为空")
+        private BigDecimal minScore;
+
+        @Schema(description = "最高可加/减分数", requiredMode = Schema.RequiredMode.REQUIRED, example = "5")
+        @NotNull(message = "最高分数不能为空")
+        private BigDecimal maxScore;
+
+        @Schema(description = "备注", example = "限受表扬当季度内有效")
+        @Size(max = 200, message = "加减分项备注不能超过 200 个字符")
+        private String remark;
     }
 
 }

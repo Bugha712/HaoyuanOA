@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Schema(description = "管理后台 - HRM 员工端绩效评分 Request VO")
@@ -34,5 +35,27 @@ public class HrmPortalPerformanceScoreReqVO {
     @Schema(description = "指标列表")
     @Valid
     private List<HrmPortalPerformanceQuotaSaveReqVO> quotas;
+
+    @Schema(description = "加减分记录列表")
+    @Valid
+    private List<BonusPenaltyRecord> bonusPenaltyRecords;
+
+    @Schema(description = "管理后台 - HRM 员工端绩效加减分记录")
+    @Data
+    public static class BonusPenaltyRecord {
+
+        @Schema(description = "加减分项标识", requiredMode = Schema.RequiredMode.REQUIRED, example = "bp_001")
+        @NotNull(message = "加减分项标识不能为空")
+        @Size(max = 64, message = "加减分项标识不能超过 64 个字符")
+        private String key;
+
+        @Schema(description = "实际加减分值", requiredMode = Schema.RequiredMode.REQUIRED, example = "4")
+        @NotNull(message = "加减分分值为空")
+        private BigDecimal score;
+
+        @Schema(description = "说明", example = "获得宾客书面表扬一次")
+        @Size(max = 1000, message = "加减分说明不能超过 1000 个字符")
+        private String reason;
+    }
 
 }

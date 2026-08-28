@@ -374,6 +374,7 @@ public class HrmPerformanceAssessmentQueryServiceImpl
                 .setStartTime(plan.getStartTime()).setEndTime(plan.getEndTime());
         if (plan.getAssessmentConfig() != null) {
             respVO.setUpperLimitScore(plan.getAssessmentConfig().getUpperLimitScore());
+            respVO.setBonusPenaltyItems(plan.getAssessmentConfig().getBonusPenaltyItems());
         }
     }
 

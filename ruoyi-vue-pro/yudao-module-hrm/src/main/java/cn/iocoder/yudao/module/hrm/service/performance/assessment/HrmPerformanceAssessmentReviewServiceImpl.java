@@ -36,6 +36,7 @@ import cn.iocoder.yudao.module.hrm.enums.performance.plan.HrmPerformanceQuotaSet
 import cn.iocoder.yudao.module.hrm.enums.performance.plan.HrmPerformanceRaterTypeEnum;
 import cn.iocoder.yudao.module.hrm.enums.performance.plan.HrmPerformanceStageTypeEnum;
 import cn.iocoder.yudao.module.hrm.enums.performance.config.HrmPerformanceUpperLimitTypeEnum;
+import cn.iocoder.yudao.module.hrm.enums.performance.config.HrmPerformanceBonusPenaltyTypeEnum;
 import cn.iocoder.yudao.module.hrm.service.employee.info.HrmEmployeeService;
 import com.mzt.logapi.starter.annotation.LogRecord;
 import javax.annotation.Resource;
@@ -473,10 +474,16 @@ public class HrmPerformanceAssessmentReviewServiceImpl
         boolean allReviewStagesIncluded = completedStages.size() + 1 == reviewStages.size();
         Level cumulativeLevel = allReviewStagesIncluded
                 ? matchResultLevel(plan.getResultConfig(), cumulativeScore) : null;
+        BigDecimal bonusPenaltySubtotal = computeBonusPenaltyTotal(
+                resolveBonusPenaltyRecords(plan, reqVO.getBonusPenaltyRecords()));
+        BigDecimal finalScorePreview = allReviewStagesIncluded
+                ? cumulativeScore.add(bonusPenaltySubtotal).setScale(2, RoundingMode.HALF_UP) : null;
         return new HrmPortalPerformanceScorePreviewRespVO()
                 .setStageScore(stageScore).setStageResultLevel(stageLevel == null ? null : stageLevel.getName())
                 .setCumulativeScore(cumulativeScore)
-                .setCumulativeResultLevel(cumulativeLevel == null ? null : cumulativeLevel.getName());
+                .setCumulativeResultLevel(cumulativeLevel == null ? null : cumulativeLevel.getName())
+                .setBonusPenaltySubtotal(bonusPenaltySubtotal)
+                .setFinalScorePreview(finalScorePreview);
     }
 
     @Override
@@ -551,7 +558,8 @@ public class HrmPerformanceAssessmentReviewServiceImpl
         refreshPartialReviewAggregates(assessment.getId(), reviewStages);
         assessment.setStageSort(previousStage.getSort()).setStageType(toPerformanceStageType(previousStage))
                 .setSelfComment(joinReviewComments(reviewStages, true))
-                .setReviewerComment(joinReviewComments(reviewStages, false));
+                .setReviewerComment(joinReviewComments(reviewStages, false))
+                .setBonusPenaltyRecords(null).setBonusPenaltyTotal(BigDecimal.ZERO);
         assessmentMapper.updateById(assessment);
         assessmentProcessService.notifyPendingStage(assessment, previousStage);
         assessmentProcessService.notifyProcessResult(assessment,
@@ -656,6 +664,10 @@ public class HrmPerformanceAssessmentReviewServiceImpl
         assessmentQuotaScoreMapper.insertBatch(reviewScores);
         assessmentQuotaMapper.updateBatch(quotas);
 
+        // 3.2 保存加减分记录与小计
+        assessment.setBonusPenaltyRecords(resolveBonusPenaltyRecords(plan, reqVO.getBonusPenaltyRecords()))
+                .setBonusPenaltyTotal(computeBonusPenaltyTotal(assessment.getBonusPenaltyRecords()));
+
         // 4. 完成当前评分阶段
         reviewStage.setScore(computeScore(plan, quotas, stageQuotaScoreMap)).setComment(stageComment)
                 .setSubmitTime(LocalDateTime.now())
@@ -755,9 +767,11 @@ public class HrmPerformanceAssessmentReviewServiceImpl
         assessmentQuotaMapper.updateBatch(quotas);
 
         // 3. 汇总员工绩效考核结果，并启动结果审核
-        BigDecimal score = computeScore(plan, quotas,
+        BigDecimal baseScore = computeScore(plan, quotas,
                 convertMap(quotas, HrmPerformanceAssessmentQuotaDO::getId,
                         HrmPerformanceAssessmentQuotaDO::getFinalScore));
+        BigDecimal score = baseScore.add(computeBonusPenaltyTotal(assessment.getBonusPenaltyRecords()))
+                .setScale(2, RoundingMode.HALF_UP);
         Level level = matchResultLevel(plan.getResultConfig(), score);
         if (level == null) {
             throw exception(PERFORMANCE_RESULT_LEVEL_NOT_MATCH);
@@ -885,6 +899,67 @@ public class HrmPerformanceAssessmentReviewServiceImpl
             total = maximumScore;
         }
         return total.setScale(2, RoundingMode.HALF_UP);
+    }
+
+    /**
+     * 解析并校验加减分记录，返回规范化后的加减分记录
+     *
+     * @param plan 绩效计划（含加减分项配置）
+     * @param records 请求的加减分记录
+     * @return 规范化后的加减分记录
+     */
+    private List<HrmPerformanceAssessmentDO.BonusPenaltyRecord> resolveBonusPenaltyRecords(
+            HrmPerformancePlanDO plan, List<HrmPortalPerformanceScoreReqVO.BonusPenaltyRecord> records) {
+        if (CollUtil.isEmpty(records)) {
+            return Collections.emptyList();
+        }
+        List<HrmPerformanceAssessmentTemplateDO.BonusPenaltyItem> items =
+                plan.getAssessmentConfig() == null ? Collections.emptyList()
+                        : ObjUtil.defaultIfNull(plan.getAssessmentConfig().getBonusPenaltyItems(),
+                        Collections.emptyList());
+        Map<String, HrmPerformanceAssessmentTemplateDO.BonusPenaltyItem> itemMap =
+                convertMap(items, HrmPerformanceAssessmentTemplateDO.BonusPenaltyItem::getKey);
+        List<HrmPerformanceAssessmentDO.BonusPenaltyRecord> result = new ArrayList<>(records.size());
+        for (HrmPortalPerformanceScoreReqVO.BonusPenaltyRecord record : records) {
+            HrmPerformanceAssessmentTemplateDO.BonusPenaltyItem item = itemMap.get(record.getKey());
+            if (item == null || record.getScore() == null) {
+                throw exception(PERFORMANCE_DATA_ILLEGAL);
+            }
+            boolean bonus = Objects.equals(item.getType(),
+                    HrmPerformanceBonusPenaltyTypeEnum.BONUS.getType());
+            // 加分项分值位于 [minScore, maxScore]，减分项分值位于 [-maxScore, -minScore]
+            BigDecimal positiveMax = ObjUtil.defaultIfNull(item.getMaxScore(), BigDecimal.ZERO);
+            BigDecimal positiveMin = ObjUtil.defaultIfNull(item.getMinScore(), BigDecimal.ZERO);
+            BigDecimal allowedMin = bonus ? positiveMin : positiveMax.negate();
+            BigDecimal allowedMax = bonus ? positiveMax : positiveMin.negate();
+            if (record.getScore().compareTo(allowedMin) < 0
+                    || record.getScore().compareTo(allowedMax) > 0) {
+                throw exception(PERFORMANCE_DATA_ILLEGAL);
+            }
+            result.add(new HrmPerformanceAssessmentDO.BonusPenaltyRecord()
+                    .setKey(record.getKey()).setScore(record.getScore()).setReason(record.getReason()));
+        }
+        return result;
+    }
+
+    /**
+     * 计算加减分小计（加分正数、减分负数）
+     *
+     * @param records 加减分记录
+     * @return 加减分小计
+     */
+    private BigDecimal computeBonusPenaltyTotal(
+            List<HrmPerformanceAssessmentDO.BonusPenaltyRecord> records) {
+        if (CollUtil.isEmpty(records)) {
+            return BigDecimal.ZERO;
+        }
+        BigDecimal total = BigDecimal.ZERO;
+        for (HrmPerformanceAssessmentDO.BonusPenaltyRecord record : records) {
+            if (record.getScore() != null) {
+                total = total.add(record.getScore());
+            }
+        }
+        return total;
     }
 
     private Level matchResultLevel(ResultConfig resultConfig, BigDecimal score) {

@@ -6,6 +6,7 @@ import cn.iocoder.yudao.module.hrm.enums.performance.plan.HrmPerformanceQuotaSco
 import cn.iocoder.yudao.module.hrm.enums.performance.config.HrmPerformanceQuotaTypeEnum;
 import cn.iocoder.yudao.module.hrm.enums.performance.config.HrmPerformanceScoreCalculationEnum;
 import cn.iocoder.yudao.module.hrm.enums.performance.config.HrmPerformanceUpperLimitTypeEnum;
+import cn.iocoder.yudao.module.hrm.enums.performance.config.HrmPerformanceBonusPenaltyTypeEnum;
 import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -80,6 +81,11 @@ public class HrmPerformanceAssessmentTemplateDO extends BaseDO {
     @TableField(typeHandler = JacksonTypeHandler.class)
     private List<Dimension> dimensions;
     /**
+     * 加减分项配置
+     */
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private List<BonusPenaltyItem> bonusPenaltyItems;
+    /**
      * 状态
      *
      * 枚举 {@link CommonStatusEnum}
@@ -119,6 +125,10 @@ public class HrmPerformanceAssessmentTemplateDO extends BaseDO {
          * 考核维度配置
          */
         private List<Dimension> dimensions;
+        /**
+         * 加减分项配置
+         */
+        private List<BonusPenaltyItem> bonusPenaltyItems;
     }
 
     /**
@@ -189,6 +199,43 @@ public class HrmPerformanceAssessmentTemplateDO extends BaseDO {
          * 枚举 {@link HrmPerformanceQuotaScoreTypeEnum}
          */
         private Integer scoreType;
+    }
+
+    /**
+     * 加减分项
+     */
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class BonusPenaltyItem {
+
+        /**
+         * 唯一标识（前端生成，用于关联加减分记录）
+         */
+        private String key;
+        /**
+         * 加减分类型
+         *
+         * 枚举 {@link HrmPerformanceBonusPenaltyTypeEnum}
+         */
+        private Integer type;
+        /**
+         * 名称（规则描述）
+         */
+        private String name;
+        /**
+         * 最低可加/减分数
+         */
+        private BigDecimal minScore;
+        /**
+         * 最高可加/减分数
+         */
+        private BigDecimal maxScore;
+        /**
+         * 备注
+         */
+        private String remark;
     }
 
 }

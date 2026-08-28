@@ -41,6 +41,9 @@ public class HrmPerformanceAssessmentTemplateRespVO {
     @Schema(description = "考核维度列表")
     private List<Dimension> dimensions;
 
+    @Schema(description = "加减分项列表")
+    private List<BonusPenaltyItem> bonusPenaltyItems;
+
     @Schema(description = "创建人")
     private String creator;
 
@@ -94,6 +97,29 @@ public class HrmPerformanceAssessmentTemplateRespVO {
 
         @Schema(description = "评分类型", example = "1")
         private Integer scoreType;
+    }
+
+    @Schema(description = "管理后台 - HRM 绩效考核模板加减分项")
+    @Data
+    public static class BonusPenaltyItem {
+
+        @Schema(description = "唯一标识", example = "bp_001")
+        private String key;
+
+        @Schema(description = "加减分类型", example = "1")
+        private Integer type;
+
+        @Schema(description = "名称", example = "获得宾客书面表扬")
+        private String name;
+
+        @Schema(description = "最低可加/减分数", example = "3")
+        private BigDecimal minScore;
+
+        @Schema(description = "最高可加/减分数", example = "5")
+        private BigDecimal maxScore;
+
+        @Schema(description = "备注", example = "限受表扬当季度内有效")
+        private String remark;
     }
 
 }
