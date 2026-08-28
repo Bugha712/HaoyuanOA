@@ -45,12 +45,12 @@
 <!--            <artifactId>yudao-module-report</artifactId>-->
 <!--            <version>${revision}</version>-->
 <!--        </dependency>-->
-        <!-- 工作流 -->
-<!--        <dependency>-->
-<!--            <groupId>cn.iocoder.boot</groupId>-->
-<!--            <artifactId>yudao-module-bpm</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
+        <!-- 工作流（审批流程）-->
+        <dependency>
+            <groupId>cn.iocoder.boot</groupId>
+            <artifactId>yudao-module-bpm</artifactId>
+            <version>${revision}</version>
+        </dependency>
         <!-- 支付服务。默认注释，保证编译速度 -->
 <!--        <dependency>-->
 <!--            <groupId>cn.iocoder.boot</groupId>-->
@@ -129,12 +129,12 @@
 <!--            <version>${revision}</version>-->
 <!--        </dependency>-->
 
-        <!-- HRM 人力资源管理模块。默认注释，保证编译速度 -->
-<!--        <dependency>-->
-<!--            <groupId>cn.iocoder.boot</groupId>-->
-<!--            <artifactId>yudao-module-hrm</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
+        <!-- HRM 人力资源管理模块（组织/员工/绩效考核/考勤/薪资）-->
+        <dependency>
+            <groupId>cn.iocoder.boot</groupId>
+            <artifactId>yudao-module-hrm</artifactId>
+            <version>${revision}</version>
+        </dependency>
 
         <!-- FMS 财务管理模块。默认注释，保证编译速度 -->
 <!--        <dependency>-->
@@ -143,12 +143,12 @@
 <!--            <version>${revision}</version>-->
 <!--        </dependency>-->
 
-        <!-- IM 相关模块。默认注释，保证编译速度 -->
-<!--        <dependency>-->
-<!--            <groupId>cn.iocoder.boot</groupId>-->
-<!--            <artifactId>yudao-module-im</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
+        <!-- IM 即时通讯模块（通讯录/好友/群聊/消息/音视频通话）-->
+        <dependency>
+            <groupId>cn.iocoder.boot</groupId>
+            <artifactId>yudao-module-im</artifactId>
+            <version>${revision}</version>
+        </dependency>
 
         <!-- spring boot 配置所需依赖 -->
         <dependency>

@@ -1,0 +1,1277 @@
+# The proper term is pseudo_replica_mode, but we use this compatibility alias
+# to make the statement usable on server versions 8.0.24 and older.
+/*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=1*/;
+/*!50003 SET @OLD_COMPLETION_TYPE=@@COMPLETION_TYPE,COMPLETION_TYPE=0*/;
+DELIMITER /*!*/;
+# at 4
+#260827 15:59:46 server id 1  end_log_pos 126 CRC32 0x8b1a04a2 	Start: binlog v 4, server v 8.0.46 created 260827 15:59:46 at startup
+# Warning: this binlog is either in use or was not closed properly.
+ROLLBACK/*!*/;
+# at 126
+#260827 15:59:46 server id 1  end_log_pos 157 CRC32 0x67e67450 	Previous-GTIDs
+# [empty]
+# at 157
+#260827 16:03:23 server id 1  end_log_pos 236 CRC32 0x1349b502 	Anonymous_GTID	last_committed=0	sequence_number=1	rbr_only=yes	original_committed_timestamp=1787817803705109	immediate_commit_timestamp=1787817803705109	transaction_length=389
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787817803705109 (2026-08-27 16:03:23.705109 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787817803705109 (2026-08-27 16:03:23.705109 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787817803705109*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 236
+#260827 16:03:23 server id 1  end_log_pos 337 CRC32 0x209be36d 	Query	thread_id=10	exec_time=0	error_code=0
+SET TIMESTAMP=1787817803/*!*/;
+SET @@session.pseudo_thread_id=10/*!*/;
+SET @@session.foreign_key_checks=1, @@session.sql_auto_is_null=0, @@session.unique_checks=1, @@session.autocommit=1/*!*/;
+SET @@session.sql_mode=1168113696/*!*/;
+SET @@session.auto_increment_increment=1, @@session.auto_increment_offset=1/*!*/;
+/*!\C utf8mb4 *//*!*/;
+SET @@session.character_set_client=255,@@session.collation_connection=255,@@session.collation_server=255/*!*/;
+SET @@session.time_zone='SYSTEM'/*!*/;
+SET @@session.lc_time_names=0/*!*/;
+SET @@session.collation_database=DEFAULT/*!*/;
+/*!80011 SET @@session.default_collation_for_utf8mb4=255*//*!*/;
+BEGIN
+/*!*/;
+# at 337
+#260827 16:03:23 server id 1  end_log_pos 431 CRC32 0x3e7fc327 	Table_map: `ruoyi-vue-pro`.`flw_ev_databasechangeloglock` mapped to number 99
+# has_generated_invisible_primary_key=0
+# at 431
+#260827 16:03:23 server id 1  end_log_pos 515 CRC32 0x2c60caca 	Update_rows: table id 99 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`flw_ev_databasechangeloglock`
+### WHERE
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3=NULL /* DATETIME(0) meta=0 nullable=1 is_null=1 */
+###   @4=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+### SET
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3='2026-08-27 16:03:23' /* DATETIME(0) meta=0 nullable=1 is_null=0 */
+###   @4='CHINAMI-GTJ15L9 (192.168.1.5)' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+# at 515
+#260827 16:03:23 server id 1  end_log_pos 546 CRC32 0x2a43d1e9 	Xid = 30
+COMMIT/*!*/;
+# at 546
+#260827 16:03:25 server id 1  end_log_pos 625 CRC32 0x2020e045 	Anonymous_GTID	last_committed=1	sequence_number=2	rbr_only=yes	original_committed_timestamp=1787817805832543	immediate_commit_timestamp=1787817805832543	transaction_length=381
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787817805832543 (2026-08-27 16:03:25.832543 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787817805832543 (2026-08-27 16:03:25.832543 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787817805832543*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 625
+#260827 16:03:25 server id 1  end_log_pos 718 CRC32 0x55b2b316 	Query	thread_id=10	exec_time=0	error_code=0
+SET TIMESTAMP=1787817805/*!*/;
+BEGIN
+/*!*/;
+# at 718
+#260827 16:03:25 server id 1  end_log_pos 812 CRC32 0x006ba12b 	Table_map: `ruoyi-vue-pro`.`flw_ev_databasechangeloglock` mapped to number 99
+# has_generated_invisible_primary_key=0
+# at 812
+#260827 16:03:25 server id 1  end_log_pos 896 CRC32 0x546858c2 	Update_rows: table id 99 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`flw_ev_databasechangeloglock`
+### WHERE
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3='2026-08-27 16:03:23' /* DATETIME(0) meta=0 nullable=1 is_null=0 */
+###   @4='CHINAMI-GTJ15L9 (192.168.1.5)' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+### SET
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3=NULL /* DATETIME(0) meta=0 nullable=1 is_null=1 */
+###   @4=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+# at 896
+#260827 16:03:25 server id 1  end_log_pos 927 CRC32 0x3b2145cc 	Xid = 88
+COMMIT/*!*/;
+# at 927
+#260827 16:04:08 server id 1  end_log_pos 1006 CRC32 0x217c24b0 	Anonymous_GTID	last_committed=2	sequence_number=3	rbr_only=yes	original_committed_timestamp=1787817848717058	immediate_commit_timestamp=1787817848717058	transaction_length=995
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787817848717058 (2026-08-27 16:04:08.717058 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787817848717058 (2026-08-27 16:04:08.717058 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787817848717058*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 1006
+#260827 16:04:08 server id 1  end_log_pos 1107 CRC32 0x2e396ce7 	Query	thread_id=12	exec_time=0	error_code=0
+SET TIMESTAMP=1787817848/*!*/;
+BEGIN
+/*!*/;
+# at 1107
+#260827 16:04:08 server id 1  end_log_pos 1225 CRC32 0x21b9f43b 	Table_map: `ruoyi-vue-pro`.`system_oauth2_access_token` mapped to number 107
+# has_generated_invisible_primary_key=0
+# at 1225
+#260827 16:04:08 server id 1  end_log_pos 1579 CRC32 0x2b6db14e 	Update_rows: table id 107 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`system_oauth2_access_token`
+### WHERE
+###   @1=118493 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='59d0119286bd4cf294e3c03f5a9b43e5' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='91216749cff24298877cfaf12b176755' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 15:53:19' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 15:23:19' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 15:23:19' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+### SET
+###   @1=118493 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='59d0119286bd4cf294e3c03f5a9b43e5' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='91216749cff24298877cfaf12b176755' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 15:53:19' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 15:23:19' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 16:04:09' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 1579
+#260827 16:04:08 server id 1  end_log_pos 1697 CRC32 0xd4250673 	Table_map: `ruoyi-vue-pro`.`system_oauth2_access_token` mapped to number 107
+# has_generated_invisible_primary_key=0
+# at 1697
+#260827 16:04:08 server id 1  end_log_pos 1891 CRC32 0x5defa4fb 	Write_rows: table id 107 flags: STMT_END_F
+### INSERT INTO `ruoyi-vue-pro`.`system_oauth2_access_token`
+### SET
+###   @1=118495 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='e5c91ff9f5e042628ee4e8e6a6523fca' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='91216749cff24298877cfaf12b176755' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 16:34:09' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:04:09' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 16:04:09' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 1891
+#260827 16:04:08 server id 1  end_log_pos 1922 CRC32 0x2e6f53e0 	Xid = 206
+COMMIT/*!*/;
+# at 1922
+#260827 16:10:45 server id 1  end_log_pos 2001 CRC32 0xa39f90a9 	Anonymous_GTID	last_committed=3	sequence_number=4	rbr_only=yes	original_committed_timestamp=1787818245462618	immediate_commit_timestamp=1787818245462618	transaction_length=541
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787818245462618 (2026-08-27 16:10:45.462618 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787818245462618 (2026-08-27 16:10:45.462618 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787818245462618*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 2001
+#260827 16:10:45 server id 1  end_log_pos 2093 CRC32 0x69abaf15 	Query	thread_id=12	exec_time=0	error_code=0
+SET TIMESTAMP=1787818245/*!*/;
+BEGIN
+/*!*/;
+# at 2093
+#260827 16:10:45 server id 1  end_log_pos 2198 CRC32 0x8c978058 	Table_map: `ruoyi-vue-pro`.`system_login_log` mapped to number 115
+# has_generated_invisible_primary_key=0
+# at 2198
+#260827 16:10:45 server id 1  end_log_pos 2432 CRC32 0xab13bbb2 	Write_rows: table id 115 flags: STMT_END_F
+### INSERT INTO `ruoyi-vue-pro`.`system_login_log`
+### SET
+###   @1=7176 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=100 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3='' /* VARSTRING(256) meta=256 nullable=0 is_null=0 */
+###   @4=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @5=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @6='admin' /* VARSTRING(200) meta=200 nullable=0 is_null=0 */
+###   @7=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @8='0:0:0:0:0:0:0:1' /* VARSTRING(200) meta=200 nullable=0 is_null=0 */
+###   @9='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:10:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 16:10:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 2432
+#260827 16:10:45 server id 1  end_log_pos 2463 CRC32 0xd05c9d54 	Xid = 625
+COMMIT/*!*/;
+# at 2463
+#260827 16:10:45 server id 1  end_log_pos 2542 CRC32 0xa7b2ac6e 	Anonymous_GTID	last_committed=4	sequence_number=5	rbr_only=yes	original_committed_timestamp=1787818245472525	immediate_commit_timestamp=1787818245472525	transaction_length=887
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787818245472525 (2026-08-27 16:10:45.472525 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787818245472525 (2026-08-27 16:10:45.472525 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787818245472525*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 2542
+#260827 16:10:45 server id 1  end_log_pos 2643 CRC32 0x96466fd1 	Query	thread_id=12	exec_time=0	error_code=0
+SET TIMESTAMP=1787818245/*!*/;
+BEGIN
+/*!*/;
+# at 2643
+#260827 16:10:45 server id 1  end_log_pos 2761 CRC32 0x886b8dc0 	Table_map: `ruoyi-vue-pro`.`system_users` mapped to number 110
+# has_generated_invisible_primary_key=0
+# at 2761
+#260827 16:10:45 server id 1  end_log_pos 3319 CRC32 0x8bb0c648 	Update_rows: table id 110 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`system_users`
+### WHERE
+###   @1=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2='admin' /* VARSTRING(120) meta=120 nullable=0 is_null=0 */
+###   @3='$2a$04$.vd8nPeLwxt6hnSzmAoAyul8BOLX7Cib6QhcxRe30rfvrIPQHH1OG' /* VARSTRING(400) meta=400 nullable=0 is_null=0 */
+###   @4='ËäãÈÅìÊ∫êÁ†Å' /* VARSTRING(120) meta=120 nullable=0 is_null=0 */
+###   @5='ÁÆ°ÁêÜÂëò' /* VARSTRING(2000) meta=2000 nullable=1 is_null=0 */
+###   @6=103 /* LONGINT meta=0 nullable=1 is_null=0 */
+###   @7='[1,2]' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+###   @8='13aoteman@126.com' /* VARSTRING(200) meta=200 nullable=1 is_null=0 */
+###   @9='18818260272' /* VARSTRING(44) meta=44 nullable=1 is_null=0 */
+###   @10=1 /* TINYINT meta=0 nullable=1 is_null=0 */
+###   @11='http://test.yudao.iocoder.cn/20260517/blob_1778998103688.png' /* VARSTRING(2048) meta=2048 nullable=1 is_null=0 */
+###   @12=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @13='0:0:0:0:0:0:0:1' /* VARSTRING(200) meta=200 nullable=1 is_null=0 */
+###   @14='2026-08-27 09:53:09' /* DATETIME(0) meta=0 nullable=1 is_null=0 */
+###   @15='admin' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @16='2021-01-05 17:03:47' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @17=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @18='2026-08-27 09:53:09' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @19=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @20=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+### SET
+###   @1=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2='admin' /* VARSTRING(120) meta=120 nullable=0 is_null=0 */
+###   @3='$2a$04$.vd8nPeLwxt6hnSzmAoAyul8BOLX7Cib6QhcxRe30rfvrIPQHH1OG' /* VARSTRING(400) meta=400 nullable=0 is_null=0 */
+###   @4='ËäãÈÅìÊ∫êÁ†Å' /* VARSTRING(120) meta=120 nullable=0 is_null=0 */
+###   @5='ÁÆ°ÁêÜÂëò' /* VARSTRING(2000) meta=2000 nullable=1 is_null=0 */
+###   @6=103 /* LONGINT meta=0 nullable=1 is_null=0 */
+###   @7='[1,2]' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+###   @8='13aoteman@126.com' /* VARSTRING(200) meta=200 nullable=1 is_null=0 */
+###   @9='18818260272' /* VARSTRING(44) meta=44 nullable=1 is_null=0 */
+###   @10=1 /* TINYINT meta=0 nullable=1 is_null=0 */
+###   @11='http://test.yudao.iocoder.cn/20260517/blob_1778998103688.png' /* VARSTRING(2048) meta=2048 nullable=1 is_null=0 */
+###   @12=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @13='0:0:0:0:0:0:0:1' /* VARSTRING(200) meta=200 nullable=1 is_null=0 */
+###   @14='2026-08-27 16:10:45' /* DATETIME(0) meta=0 nullable=1 is_null=0 */
+###   @15='admin' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @16='2021-01-05 17:03:47' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @17=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @18='2026-08-27 16:10:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @19=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @20=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 3319
+#260827 16:10:45 server id 1  end_log_pos 3350 CRC32 0x7fe5e01d 	Xid = 627
+COMMIT/*!*/;
+# at 3350
+#260827 16:10:45 server id 1  end_log_pos 3429 CRC32 0xe7bfaa13 	Anonymous_GTID	last_committed=5	sequence_number=6	rbr_only=yes	original_committed_timestamp=1787818245492600	immediate_commit_timestamp=1787818245492600	transaction_length=753
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787818245492600 (2026-08-27 16:10:45.492600 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787818245492600 (2026-08-27 16:10:45.492600 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787818245492600*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 3429
+#260827 16:10:45 server id 1  end_log_pos 3521 CRC32 0x006124a2 	Query	thread_id=12	exec_time=0	error_code=0
+SET TIMESTAMP=1787818245/*!*/;
+BEGIN
+/*!*/;
+# at 3521
+#260827 16:10:45 server id 1  end_log_pos 3634 CRC32 0x72cbd07c 	Table_map: `ruoyi-vue-pro`.`system_oauth2_refresh_token` mapped to number 109
+# has_generated_invisible_primary_key=0
+# at 3634
+#260827 16:10:45 server id 1  end_log_pos 3755 CRC32 0xc3b7ff92 	Write_rows: table id 109 flags: STMT_END_F
+### INSERT INTO `ruoyi-vue-pro`.`system_oauth2_refresh_token`
+### SET
+###   @1=5108 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3='167681c6626f465a9910e32784bd59a0' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @4=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @5='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @7='2026-09-26 16:10:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @9='2026-08-27 16:10:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:10:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @13=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 3755
+#260827 16:10:45 server id 1  end_log_pos 3873 CRC32 0x6eda35a3 	Table_map: `ruoyi-vue-pro`.`system_oauth2_access_token` mapped to number 107
+# has_generated_invisible_primary_key=0
+# at 3873
+#260827 16:10:45 server id 1  end_log_pos 4072 CRC32 0x1ac63fe0 	Write_rows: table id 107 flags: STMT_END_F
+### INSERT INTO `ruoyi-vue-pro`.`system_oauth2_access_token`
+### SET
+###   @1=118496 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"ËäãÈÅìÊ∫êÁ†Å","deptId":"103"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='77c88cfcc8064c48bed5a9fe08b7d63d' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='167681c6626f465a9910e32784bd59a0' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 16:40:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:10:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 16:10:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 4072
+#260827 16:10:45 server id 1  end_log_pos 4103 CRC32 0x3f93f5c7 	Xid = 630
+COMMIT/*!*/;
+# at 4103
+#260827 16:11:00 server id 1  end_log_pos 4182 CRC32 0xc1918c23 	Anonymous_GTID	last_committed=6	sequence_number=7	rbr_only=yes	original_committed_timestamp=1787818260178431	immediate_commit_timestamp=1787818260178431	transaction_length=543
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787818260178431 (2026-08-27 16:11:00.178431 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787818260178431 (2026-08-27 16:11:00.178431 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787818260178431*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 4182
+#260827 16:11:00 server id 1  end_log_pos 4274 CRC32 0xf69306d7 	Query	thread_id=12	exec_time=0	error_code=0
+SET TIMESTAMP=1787818260/*!*/;
+BEGIN
+/*!*/;
+# at 4274
+#260827 16:11:00 server id 1  end_log_pos 4379 CRC32 0xc80e480a 	Table_map: `ruoyi-vue-pro`.`system_login_log` mapped to number 115
+# has_generated_invisible_primary_key=0
+# at 4379
+#260827 16:11:00 server id 1  end_log_pos 4615 CRC32 0x379671c9 	Write_rows: table id 115 flags: STMT_END_F
+### INSERT INTO `ruoyi-vue-pro`.`system_login_log`
+### SET
+###   @1=7177 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=100 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3='' /* VARSTRING(256) meta=256 nullable=0 is_null=0 */
+###   @4=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @5=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @6='hyadmin' /* VARSTRING(200) meta=200 nullable=0 is_null=0 */
+###   @7=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @8='0:0:0:0:0:0:0:1' /* VARSTRING(200) meta=200 nullable=0 is_null=0 */
+###   @9='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:11:00' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 16:11:00' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 4615
+#260827 16:11:00 server id 1  end_log_pos 4646 CRC32 0x32034bb4 	Xid = 661
+COMMIT/*!*/;
+# at 4646
+#260827 16:11:00 server id 1  end_log_pos 4725 CRC32 0xaad9709b 	Anonymous_GTID	last_committed=7	sequence_number=8	rbr_only=yes	original_committed_timestamp=1787818260188302	immediate_commit_timestamp=1787818260188302	transaction_length=673
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787818260188302 (2026-08-27 16:11:00.188302 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787818260188302 (2026-08-27 16:11:00.188302 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787818260188302*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 4725
+#260827 16:11:00 server id 1  end_log_pos 4826 CRC32 0x65dc2ccf 	Query	thread_id=12	exec_time=0	error_code=0
+SET TIMESTAMP=1787818260/*!*/;
+BEGIN
+/*!*/;
+# at 4826
+#260827 16:11:00 server id 1  end_log_pos 4944 CRC32 0x552a2d9d 	Table_map: `ruoyi-vue-pro`.`system_users` mapped to number 110
+# has_generated_invisible_primary_key=0
+# at 4944
+#260827 16:11:00 server id 1  end_log_pos 5288 CRC32 0xcb436634 	Update_rows: table id 110 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`system_users`
+### WHERE
+###   @1=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2='hyadmin' /* VARSTRING(120) meta=120 nullable=0 is_null=0 */
+###   @3='$2a$04$26Ei6ad5OkcXi5Fn6wAOV.6PALFuMaUfjopao9q.bPD7I056pupzy' /* VARSTRING(400) meta=400 nullable=0 is_null=0 */
+###   @4='hyadmin' /* VARSTRING(120) meta=120 nullable=0 is_null=0 */
+###   @5='' /* VARSTRING(2000) meta=2000 nullable=1 is_null=0 */
+###   @6=122 /* LONGINT meta=0 nullable=1 is_null=0 */
+###   @7='[]' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+###   @8='' /* VARSTRING(200) meta=200 nullable=1 is_null=0 */
+###   @9='' /* VARSTRING(44) meta=44 nullable=1 is_null=0 */
+###   @10=0 /* TINYINT meta=0 nullable=1 is_null=0 */
+###   @11='' /* VARSTRING(2048) meta=2048 nullable=1 is_null=0 */
+###   @12=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @13='0:0:0:0:0:0:0:1' /* VARSTRING(200) meta=200 nullable=1 is_null=0 */
+###   @14='2026-08-27 15:00:20' /* DATETIME(0) meta=0 nullable=1 is_null=0 */
+###   @15='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @16='2026-08-26 17:28:35' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @17=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @18='2026-08-27 15:00:20' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @19=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @20=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+### SET
+###   @1=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2='hyadmin' /* VARSTRING(120) meta=120 nullable=0 is_null=0 */
+###   @3='$2a$04$26Ei6ad5OkcXi5Fn6wAOV.6PALFuMaUfjopao9q.bPD7I056pupzy' /* VARSTRING(400) meta=400 nullable=0 is_null=0 */
+###   @4='hyadmin' /* VARSTRING(120) meta=120 nullable=0 is_null=0 */
+###   @5='' /* VARSTRING(2000) meta=2000 nullable=1 is_null=0 */
+###   @6=122 /* LONGINT meta=0 nullable=1 is_null=0 */
+###   @7='[]' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+###   @8='' /* VARSTRING(200) meta=200 nullable=1 is_null=0 */
+###   @9='' /* VARSTRING(44) meta=44 nullable=1 is_null=0 */
+###   @10=0 /* TINYINT meta=0 nullable=1 is_null=0 */
+###   @11='' /* VARSTRING(2048) meta=2048 nullable=1 is_null=0 */
+###   @12=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @13='0:0:0:0:0:0:0:1' /* VARSTRING(200) meta=200 nullable=1 is_null=0 */
+###   @14='2026-08-27 16:11:00' /* DATETIME(0) meta=0 nullable=1 is_null=0 */
+###   @15='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @16='2026-08-26 17:28:35' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @17=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @18='2026-08-27 16:11:00' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @19=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @20=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 5288
+#260827 16:11:00 server id 1  end_log_pos 5319 CRC32 0x426212a9 	Xid = 663
+COMMIT/*!*/;
+# at 5319
+#260827 16:11:00 server id 1  end_log_pos 5398 CRC32 0x144fc37b 	Anonymous_GTID	last_committed=8	sequence_number=9	rbr_only=yes	original_committed_timestamp=1787818260238500	immediate_commit_timestamp=1787818260238500	transaction_length=748
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787818260238500 (2026-08-27 16:11:00.238500 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787818260238500 (2026-08-27 16:11:00.238500 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787818260238500*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 5398
+#260827 16:11:00 server id 1  end_log_pos 5490 CRC32 0x06a92709 	Query	thread_id=12	exec_time=0	error_code=0
+SET TIMESTAMP=1787818260/*!*/;
+BEGIN
+/*!*/;
+# at 5490
+#260827 16:11:00 server id 1  end_log_pos 5603 CRC32 0xc107676f 	Table_map: `ruoyi-vue-pro`.`system_oauth2_refresh_token` mapped to number 109
+# has_generated_invisible_primary_key=0
+# at 5603
+#260827 16:11:00 server id 1  end_log_pos 5724 CRC32 0x5185b228 	Write_rows: table id 109 flags: STMT_END_F
+### INSERT INTO `ruoyi-vue-pro`.`system_oauth2_refresh_token`
+### SET
+###   @1=5109 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3='238b63a2ae694f74b2fd39a1b7769033' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @4=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @5='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @7='2026-09-26 16:11:00' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @9='2026-08-27 16:11:00' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:11:00' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @13=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 5724
+#260827 16:11:00 server id 1  end_log_pos 5842 CRC32 0x6bdf0cb3 	Table_map: `ruoyi-vue-pro`.`system_oauth2_access_token` mapped to number 107
+# has_generated_invisible_primary_key=0
+# at 5842
+#260827 16:11:00 server id 1  end_log_pos 6036 CRC32 0x8fe96b16 	Write_rows: table id 107 flags: STMT_END_F
+### INSERT INTO `ruoyi-vue-pro`.`system_oauth2_access_token`
+### SET
+###   @1=118497 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='9c4bc5b718d34c49a45f844fcd8e0a73' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='238b63a2ae694f74b2fd39a1b7769033' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 16:41:00' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:11:00' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 16:11:00' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 6036
+#260827 16:11:00 server id 1  end_log_pos 6067 CRC32 0x976e57e8 	Xid = 666
+COMMIT/*!*/;
+# at 6067
+#260827 16:12:21 server id 1  end_log_pos 6146 CRC32 0xa5b0746c 	Anonymous_GTID	last_committed=9	sequence_number=10	rbr_only=yes	original_committed_timestamp=1787818341917530	immediate_commit_timestamp=1787818341917530	transaction_length=389
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787818341917530 (2026-08-27 16:12:21.917530 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787818341917530 (2026-08-27 16:12:21.917530 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787818341917530*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 6146
+#260827 16:12:21 server id 1  end_log_pos 6247 CRC32 0x3f1b8df5 	Query	thread_id=13	exec_time=0	error_code=0
+SET TIMESTAMP=1787818341/*!*/;
+BEGIN
+/*!*/;
+# at 6247
+#260827 16:12:21 server id 1  end_log_pos 6341 CRC32 0x8a8d6e20 	Table_map: `ruoyi-vue-pro`.`flw_ev_databasechangeloglock` mapped to number 99
+# has_generated_invisible_primary_key=0
+# at 6341
+#260827 16:12:21 server id 1  end_log_pos 6425 CRC32 0x0acf01be 	Update_rows: table id 99 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`flw_ev_databasechangeloglock`
+### WHERE
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3=NULL /* DATETIME(0) meta=0 nullable=1 is_null=1 */
+###   @4=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+### SET
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3='2026-08-27 16:12:21' /* DATETIME(0) meta=0 nullable=1 is_null=0 */
+###   @4='CHINAMI-GTJ15L9 (192.168.1.5)' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+# at 6425
+#260827 16:12:21 server id 1  end_log_pos 6456 CRC32 0x60830996 	Xid = 732
+COMMIT/*!*/;
+# at 6456
+#260827 16:12:23 server id 1  end_log_pos 6535 CRC32 0x84b5743f 	Anonymous_GTID	last_committed=10	sequence_number=11	rbr_only=yes	original_committed_timestamp=1787818343984848	immediate_commit_timestamp=1787818343984848	transaction_length=381
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787818343984848 (2026-08-27 16:12:23.984848 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787818343984848 (2026-08-27 16:12:23.984848 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787818343984848*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 6535
+#260827 16:12:23 server id 1  end_log_pos 6628 CRC32 0xd865e5d7 	Query	thread_id=13	exec_time=0	error_code=0
+SET TIMESTAMP=1787818343/*!*/;
+BEGIN
+/*!*/;
+# at 6628
+#260827 16:12:23 server id 1  end_log_pos 6722 CRC32 0x3f38adb8 	Table_map: `ruoyi-vue-pro`.`flw_ev_databasechangeloglock` mapped to number 99
+# has_generated_invisible_primary_key=0
+# at 6722
+#260827 16:12:23 server id 1  end_log_pos 6806 CRC32 0x8128db73 	Update_rows: table id 99 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`flw_ev_databasechangeloglock`
+### WHERE
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3='2026-08-27 16:12:21' /* DATETIME(0) meta=0 nullable=1 is_null=0 */
+###   @4='CHINAMI-GTJ15L9 (192.168.1.5)' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+### SET
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3=NULL /* DATETIME(0) meta=0 nullable=1 is_null=1 */
+###   @4=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+# at 6806
+#260827 16:12:23 server id 1  end_log_pos 6837 CRC32 0x79c99c28 	Xid = 790
+COMMIT/*!*/;
+# at 6837
+#260827 16:51:24 server id 1  end_log_pos 6916 CRC32 0xe0566781 	Anonymous_GTID	last_committed=11	sequence_number=12	rbr_only=yes	original_committed_timestamp=1787820684545243	immediate_commit_timestamp=1787820684545243	transaction_length=995
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787820684545243 (2026-08-27 16:51:24.545243 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787820684545243 (2026-08-27 16:51:24.545243 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787820684545243*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 6916
+#260827 16:51:24 server id 1  end_log_pos 7017 CRC32 0xed9d8474 	Query	thread_id=15	exec_time=0	error_code=0
+SET TIMESTAMP=1787820684/*!*/;
+BEGIN
+/*!*/;
+# at 7017
+#260827 16:51:24 server id 1  end_log_pos 7135 CRC32 0xb2c49316 	Table_map: `ruoyi-vue-pro`.`system_oauth2_access_token` mapped to number 107
+# has_generated_invisible_primary_key=0
+# at 7135
+#260827 16:51:24 server id 1  end_log_pos 7489 CRC32 0xd42a5d9b 	Update_rows: table id 107 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`system_oauth2_access_token`
+### WHERE
+###   @1=118495 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='e5c91ff9f5e042628ee4e8e6a6523fca' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='91216749cff24298877cfaf12b176755' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 16:34:09' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:04:09' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 16:04:09' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+### SET
+###   @1=118495 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='e5c91ff9f5e042628ee4e8e6a6523fca' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='91216749cff24298877cfaf12b176755' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 16:34:09' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:04:09' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 16:51:25' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 7489
+#260827 16:51:24 server id 1  end_log_pos 7607 CRC32 0x4a567d6b 	Table_map: `ruoyi-vue-pro`.`system_oauth2_access_token` mapped to number 107
+# has_generated_invisible_primary_key=0
+# at 7607
+#260827 16:51:24 server id 1  end_log_pos 7801 CRC32 0x256b5b70 	Write_rows: table id 107 flags: STMT_END_F
+### INSERT INTO `ruoyi-vue-pro`.`system_oauth2_access_token`
+### SET
+###   @1=118498 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='e2d8b4535c3a407ba70dc3754fafdb25' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='91216749cff24298877cfaf12b176755' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 17:21:25' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:51:25' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 16:51:25' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 7801
+#260827 16:51:24 server id 1  end_log_pos 7832 CRC32 0x310ec050 	Xid = 3234
+COMMIT/*!*/;
+# at 7832
+#260827 16:54:30 server id 1  end_log_pos 7911 CRC32 0x919be9f4 	Anonymous_GTID	last_committed=12	sequence_number=13	rbr_only=yes	original_committed_timestamp=1787820870809234	immediate_commit_timestamp=1787820870809234	transaction_length=995
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787820870809234 (2026-08-27 16:54:30.809234 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787820870809234 (2026-08-27 16:54:30.809234 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787820870809234*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 7911
+#260827 16:54:30 server id 1  end_log_pos 8012 CRC32 0x1c6d4f4a 	Query	thread_id=15	exec_time=0	error_code=0
+SET TIMESTAMP=1787820870/*!*/;
+BEGIN
+/*!*/;
+# at 8012
+#260827 16:54:30 server id 1  end_log_pos 8130 CRC32 0xaa10868a 	Table_map: `ruoyi-vue-pro`.`system_oauth2_access_token` mapped to number 107
+# has_generated_invisible_primary_key=0
+# at 8130
+#260827 16:54:30 server id 1  end_log_pos 8484 CRC32 0xec3d335a 	Update_rows: table id 107 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`system_oauth2_access_token`
+### WHERE
+###   @1=118494 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='70c87dadea704bafb5db515b4e5f9a70' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='f4420a14f0444da3b9010629d079563f' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 16:00:21' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 15:30:21' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 15:30:21' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+### SET
+###   @1=118494 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='70c87dadea704bafb5db515b4e5f9a70' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='f4420a14f0444da3b9010629d079563f' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 16:00:21' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 15:30:21' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 16:54:31' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 8484
+#260827 16:54:30 server id 1  end_log_pos 8602 CRC32 0x4d39b467 	Table_map: `ruoyi-vue-pro`.`system_oauth2_access_token` mapped to number 107
+# has_generated_invisible_primary_key=0
+# at 8602
+#260827 16:54:30 server id 1  end_log_pos 8796 CRC32 0x7a1c5301 	Write_rows: table id 107 flags: STMT_END_F
+### INSERT INTO `ruoyi-vue-pro`.`system_oauth2_access_token`
+### SET
+###   @1=118499 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='b8b85a906bfc411bad9c4effbb513191' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='f4420a14f0444da3b9010629d079563f' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 17:24:31' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:54:31' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 16:54:31' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 8796
+#260827 16:54:30 server id 1  end_log_pos 8827 CRC32 0x827e0c10 	Xid = 3460
+COMMIT/*!*/;
+# at 8827
+#260827 17:07:12 server id 1  end_log_pos 8906 CRC32 0x81c66ee5 	Anonymous_GTID	last_committed=13	sequence_number=14	rbr_only=yes	original_committed_timestamp=1787821632439781	immediate_commit_timestamp=1787821632439781	transaction_length=389
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787821632439781 (2026-08-27 17:07:12.439781 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787821632439781 (2026-08-27 17:07:12.439781 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787821632439781*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 8906
+#260827 17:07:12 server id 1  end_log_pos 9007 CRC32 0xce9c2a44 	Query	thread_id=17	exec_time=0	error_code=0
+SET TIMESTAMP=1787821632/*!*/;
+BEGIN
+/*!*/;
+# at 9007
+#260827 17:07:12 server id 1  end_log_pos 9101 CRC32 0xf81fa792 	Table_map: `ruoyi-vue-pro`.`flw_ev_databasechangeloglock` mapped to number 99
+# has_generated_invisible_primary_key=0
+# at 9101
+#260827 17:07:12 server id 1  end_log_pos 9185 CRC32 0xf410b458 	Update_rows: table id 99 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`flw_ev_databasechangeloglock`
+### WHERE
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3=NULL /* DATETIME(0) meta=0 nullable=1 is_null=1 */
+###   @4=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+### SET
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3='2026-08-27 17:07:12' /* DATETIME(0) meta=0 nullable=1 is_null=0 */
+###   @4='CHINAMI-GTJ15L9 (192.168.1.5)' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+# at 9185
+#260827 17:07:12 server id 1  end_log_pos 9216 CRC32 0x6f302d73 	Xid = 3704
+COMMIT/*!*/;
+# at 9216
+#260827 17:07:14 server id 1  end_log_pos 9295 CRC32 0x48784ce0 	Anonymous_GTID	last_committed=14	sequence_number=15	rbr_only=yes	original_committed_timestamp=1787821634473875	immediate_commit_timestamp=1787821634473875	transaction_length=381
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787821634473875 (2026-08-27 17:07:14.473875 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787821634473875 (2026-08-27 17:07:14.473875 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787821634473875*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 9295
+#260827 17:07:14 server id 1  end_log_pos 9388 CRC32 0xa7e1f29d 	Query	thread_id=17	exec_time=0	error_code=0
+SET TIMESTAMP=1787821634/*!*/;
+BEGIN
+/*!*/;
+# at 9388
+#260827 17:07:14 server id 1  end_log_pos 9482 CRC32 0x1933aa31 	Table_map: `ruoyi-vue-pro`.`flw_ev_databasechangeloglock` mapped to number 99
+# has_generated_invisible_primary_key=0
+# at 9482
+#260827 17:07:14 server id 1  end_log_pos 9566 CRC32 0xc9ad7c8b 	Update_rows: table id 99 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`flw_ev_databasechangeloglock`
+### WHERE
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3='2026-08-27 17:07:12' /* DATETIME(0) meta=0 nullable=1 is_null=0 */
+###   @4='CHINAMI-GTJ15L9 (192.168.1.5)' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+### SET
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3=NULL /* DATETIME(0) meta=0 nullable=1 is_null=1 */
+###   @4=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+# at 9566
+#260827 17:07:14 server id 1  end_log_pos 9597 CRC32 0xd94d5a95 	Xid = 3762
+COMMIT/*!*/;
+# at 9597
+#260827 17:11:22 server id 1  end_log_pos 9676 CRC32 0x56e2f7d2 	Anonymous_GTID	last_committed=15	sequence_number=16	rbr_only=yes	original_committed_timestamp=1787821882246195	immediate_commit_timestamp=1787821882246195	transaction_length=539
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787821882246195 (2026-08-27 17:11:22.246195 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787821882246195 (2026-08-27 17:11:22.246195 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787821882246195*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 9676
+#260827 17:11:22 server id 1  end_log_pos 9777 CRC32 0xc2c989bb 	Query	thread_id=8	exec_time=0	error_code=0
+SET TIMESTAMP=1787821882/*!*/;
+BEGIN
+/*!*/;
+# at 9777
+#260827 17:11:22 server id 1  end_log_pos 9892 CRC32 0x8434ca70 	Table_map: `ruoyi-vue-pro`.`system_menu` mapped to number 114
+# has_generated_invisible_primary_key=0
+# at 9892
+#260827 17:11:22 server id 1  end_log_pos 10105 CRC32 0x8cac614a 	Update_rows: table id 114 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`system_menu`
+### WHERE
+###   @1=2100 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2='IMÂ∑•‰ΩúÂè∞' /* VARSTRING(200) meta=200 nullable=0 is_null=0 */
+###   @3='' /* VARSTRING(400) meta=400 nullable=0 is_null=0 */
+###   @4=1 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @5=500 /* INT meta=0 nullable=0 is_null=0 */
+###   @6=0 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @7='im' /* VARSTRING(800) meta=800 nullable=1 is_null=0 */
+###   @8='ep:chat-dot-round' /* VARSTRING(400) meta=400 nullable=1 is_null=0 */
+###   @9=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @10=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @11=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @12=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @13=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15='admin' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @16='2026-08-27 11:47:03' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @17='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @18='2026-08-27 11:47:03' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @19=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+### SET
+###   @1=2100 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2='IMÂ∑•‰ΩúÂè∞' /* VARSTRING(200) meta=200 nullable=0 is_null=0 */
+###   @3='' /* VARSTRING(400) meta=400 nullable=0 is_null=0 */
+###   @4=1 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @5=500 /* INT meta=0 nullable=0 is_null=0 */
+###   @6=0 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @7='/im' /* VARSTRING(800) meta=800 nullable=1 is_null=0 */
+###   @8='ep:chat-dot-round' /* VARSTRING(400) meta=400 nullable=1 is_null=0 */
+###   @9=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @10=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @11=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @12=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @13=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15='admin' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @16='2026-08-27 11:47:03' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @17='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @18='2026-08-27 17:11:22' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @19=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+# at 10105
+#260827 17:11:22 server id 1  end_log_pos 10136 CRC32 0x5c1d002c 	Xid = 4086
+COMMIT/*!*/;
+# at 10136
+#260827 17:21:43 server id 1  end_log_pos 10215 CRC32 0x61e22d46 	Anonymous_GTID	last_committed=16	sequence_number=17	rbr_only=yes	original_committed_timestamp=1787822503648690	immediate_commit_timestamp=1787822503648690	transaction_length=389
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787822503648690 (2026-08-27 17:21:43.648690 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787822503648690 (2026-08-27 17:21:43.648690 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787822503648690*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 10215
+#260827 17:21:43 server id 1  end_log_pos 10316 CRC32 0x4dfcebf3 	Query	thread_id=20	exec_time=0	error_code=0
+SET TIMESTAMP=1787822503/*!*/;
+BEGIN
+/*!*/;
+# at 10316
+#260827 17:21:43 server id 1  end_log_pos 10410 CRC32 0x9bfff981 	Table_map: `ruoyi-vue-pro`.`flw_ev_databasechangeloglock` mapped to number 99
+# has_generated_invisible_primary_key=0
+# at 10410
+#260827 17:21:43 server id 1  end_log_pos 10494 CRC32 0xc3599fa4 	Update_rows: table id 99 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`flw_ev_databasechangeloglock`
+### WHERE
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3=NULL /* DATETIME(0) meta=0 nullable=1 is_null=1 */
+###   @4=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+### SET
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3='2026-08-27 17:21:43' /* DATETIME(0) meta=0 nullable=1 is_null=0 */
+###   @4='CHINAMI-GTJ15L9 (192.168.1.5)' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+# at 10494
+#260827 17:21:43 server id 1  end_log_pos 10525 CRC32 0x806b82df 	Xid = 4807
+COMMIT/*!*/;
+# at 10525
+#260827 17:21:45 server id 1  end_log_pos 10604 CRC32 0x9ef0f8d3 	Anonymous_GTID	last_committed=17	sequence_number=18	rbr_only=yes	original_committed_timestamp=1787822505818684	immediate_commit_timestamp=1787822505818684	transaction_length=381
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787822505818684 (2026-08-27 17:21:45.818684 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787822505818684 (2026-08-27 17:21:45.818684 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787822505818684*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 10604
+#260827 17:21:45 server id 1  end_log_pos 10697 CRC32 0x90b73862 	Query	thread_id=20	exec_time=0	error_code=0
+SET TIMESTAMP=1787822505/*!*/;
+BEGIN
+/*!*/;
+# at 10697
+#260827 17:21:45 server id 1  end_log_pos 10791 CRC32 0x8029167b 	Table_map: `ruoyi-vue-pro`.`flw_ev_databasechangeloglock` mapped to number 99
+# has_generated_invisible_primary_key=0
+# at 10791
+#260827 17:21:45 server id 1  end_log_pos 10875 CRC32 0xaaa14529 	Update_rows: table id 99 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`flw_ev_databasechangeloglock`
+### WHERE
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3='2026-08-27 17:21:43' /* DATETIME(0) meta=0 nullable=1 is_null=0 */
+###   @4='CHINAMI-GTJ15L9 (192.168.1.5)' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+### SET
+###   @1=1 /* INT meta=0 nullable=0 is_null=0 */
+###   @2=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @3=NULL /* DATETIME(0) meta=0 nullable=1 is_null=1 */
+###   @4=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+# at 10875
+#260827 17:21:45 server id 1  end_log_pos 10906 CRC32 0xbf7a657a 	Xid = 4865
+COMMIT/*!*/;
+# at 10906
+#260827 17:22:23 server id 1  end_log_pos 10985 CRC32 0xdb050b94 	Anonymous_GTID	last_committed=18	sequence_number=19	rbr_only=yes	original_committed_timestamp=1787822543499968	immediate_commit_timestamp=1787822543499968	transaction_length=995
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787822543499968 (2026-08-27 17:22:23.499968 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787822543499968 (2026-08-27 17:22:23.499968 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787822543499968*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 10985
+#260827 17:22:23 server id 1  end_log_pos 11086 CRC32 0x7f466916 	Query	thread_id=22	exec_time=0	error_code=0
+SET TIMESTAMP=1787822543/*!*/;
+BEGIN
+/*!*/;
+# at 11086
+#260827 17:22:23 server id 1  end_log_pos 11204 CRC32 0xf287fdad 	Table_map: `ruoyi-vue-pro`.`system_oauth2_access_token` mapped to number 107
+# has_generated_invisible_primary_key=0
+# at 11204
+#260827 17:22:23 server id 1  end_log_pos 11558 CRC32 0x4c864cce 	Update_rows: table id 107 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`system_oauth2_access_token`
+### WHERE
+###   @1=118498 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='e2d8b4535c3a407ba70dc3754fafdb25' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='91216749cff24298877cfaf12b176755' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 17:21:25' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:51:25' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 16:51:25' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+### SET
+###   @1=118498 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='e2d8b4535c3a407ba70dc3754fafdb25' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='91216749cff24298877cfaf12b176755' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 17:21:25' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 16:51:25' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 17:22:23' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 11558
+#260827 17:22:23 server id 1  end_log_pos 11676 CRC32 0x53fa6656 	Table_map: `ruoyi-vue-pro`.`system_oauth2_access_token` mapped to number 107
+# has_generated_invisible_primary_key=0
+# at 11676
+#260827 17:22:23 server id 1  end_log_pos 11870 CRC32 0x8d20dc1b 	Write_rows: table id 107 flags: STMT_END_F
+### INSERT INTO `ruoyi-vue-pro`.`system_oauth2_access_token`
+### SET
+###   @1=118500 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='54303ec824914cecbe17bf19f96131f5' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='91216749cff24298877cfaf12b176755' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 17:52:23' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 17:22:23' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 17:22:23' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 11870
+#260827 17:22:23 server id 1  end_log_pos 11901 CRC32 0xd749f491 	Xid = 4976
+COMMIT/*!*/;
+# at 11901
+#260827 17:26:08 server id 1  end_log_pos 11980 CRC32 0x158eae78 	Anonymous_GTID	last_committed=19	sequence_number=20	rbr_only=yes	original_committed_timestamp=1787822768770250	immediate_commit_timestamp=1787822768770250	transaction_length=556
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787822768770250 (2026-08-27 17:26:08.770250 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787822768770250 (2026-08-27 17:26:08.770250 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787822768770250*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 11980
+#260827 17:26:08 server id 1  end_log_pos 12081 CRC32 0xd877b201 	Query	thread_id=8	exec_time=0	error_code=0
+SET TIMESTAMP=1787822768/*!*/;
+BEGIN
+/*!*/;
+# at 12081
+#260827 17:26:08 server id 1  end_log_pos 12196 CRC32 0x4f90ff84 	Table_map: `ruoyi-vue-pro`.`system_menu` mapped to number 114
+# has_generated_invisible_primary_key=0
+# at 12196
+#260827 17:26:08 server id 1  end_log_pos 12426 CRC32 0xbdea1311 	Update_rows: table id 114 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`system_menu`
+### WHERE
+###   @1=1418 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2='IM Âç≥Êó∂ÈÄöËÆØ' /* VARSTRING(200) meta=200 nullable=0 is_null=0 */
+###   @3='' /* VARSTRING(400) meta=400 nullable=0 is_null=0 */
+###   @4=1 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @5=501 /* INT meta=0 nullable=0 is_null=0 */
+###   @6=0 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @7='/im' /* VARSTRING(800) meta=800 nullable=1 is_null=0 */
+###   @8='ep:chat-dot-round' /* VARSTRING(400) meta=400 nullable=1 is_null=0 */
+###   @9=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @10=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @11=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @12=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @13=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15='admin' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @16='2026-04-30 09:11:20' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @17='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @18='2026-08-14 01:49:42' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @19=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+### SET
+###   @1=1418 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2='IM Âç≥Êó∂ÈÄöËÆØ' /* VARSTRING(200) meta=200 nullable=0 is_null=0 */
+###   @3='' /* VARSTRING(400) meta=400 nullable=0 is_null=0 */
+###   @4=1 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @5=501 /* INT meta=0 nullable=0 is_null=0 */
+###   @6=0 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @7='/im/manager' /* VARSTRING(800) meta=800 nullable=1 is_null=0 */
+###   @8='ep:chat-dot-round' /* VARSTRING(400) meta=400 nullable=1 is_null=0 */
+###   @9=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @10=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @11=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @12=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @13=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15='admin' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @16='2026-04-30 09:11:20' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @17='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @18='2026-08-27 17:26:08' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @19=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+# at 12426
+#260827 17:26:08 server id 1  end_log_pos 12457 CRC32 0x43e5e00f 	Xid = 5232
+COMMIT/*!*/;
+# at 12457
+#260827 17:33:47 server id 1  end_log_pos 12536 CRC32 0x098e8eeb 	Anonymous_GTID	last_committed=20	sequence_number=21	rbr_only=yes	original_committed_timestamp=1787823227553998	immediate_commit_timestamp=1787823227553998	transaction_length=433
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787823227553998 (2026-08-27 17:33:47.553998 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787823227553998 (2026-08-27 17:33:47.553998 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787823227553998*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 12536
+#260827 17:33:47 server id 1  end_log_pos 12620 CRC32 0xf4a6f10c 	Query	thread_id=8	exec_time=0	error_code=0
+SET TIMESTAMP=1787823227/*!*/;
+BEGIN
+/*!*/;
+# at 12620
+#260827 17:33:47 server id 1  end_log_pos 12735 CRC32 0x51aba927 	Table_map: `ruoyi-vue-pro`.`system_menu` mapped to number 114
+# has_generated_invisible_primary_key=0
+# at 12735
+#260827 17:33:47 server id 1  end_log_pos 12859 CRC32 0x9d81ddad 	Delete_rows: table id 114 flags: STMT_END_F
+### DELETE FROM `ruoyi-vue-pro`.`system_menu`
+### WHERE
+###   @1=2100 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2='IMÂ∑•‰ΩúÂè∞' /* VARSTRING(200) meta=200 nullable=0 is_null=0 */
+###   @3='' /* VARSTRING(400) meta=400 nullable=0 is_null=0 */
+###   @4=1 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @5=500 /* INT meta=0 nullable=0 is_null=0 */
+###   @6=0 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @7='/im' /* VARSTRING(800) meta=800 nullable=1 is_null=0 */
+###   @8='ep:chat-dot-round' /* VARSTRING(400) meta=400 nullable=1 is_null=0 */
+###   @9=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @10=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @11=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @12=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @13=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15='admin' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @16='2026-08-27 11:47:03' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @17='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @18='2026-08-27 17:11:22' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @19=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+# at 12859
+#260827 17:33:47 server id 1  end_log_pos 12890 CRC32 0xdcd0249c 	Xid = 5839
+COMMIT/*!*/;
+# at 12890
+#260827 17:35:45 server id 1  end_log_pos 12969 CRC32 0xf4a5cefd 	Anonymous_GTID	last_committed=21	sequence_number=22	rbr_only=yes	original_committed_timestamp=1787823345113684	immediate_commit_timestamp=1787823345113684	transaction_length=440
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787823345113684 (2026-08-27 17:35:45.113684 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787823345113684 (2026-08-27 17:35:45.113684 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787823345113684*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 12969
+#260827 17:35:45 server id 1  end_log_pos 13061 CRC32 0x8c619def 	Query	thread_id=8	exec_time=0	error_code=0
+SET TIMESTAMP=1787823345/*!*/;
+BEGIN
+/*!*/;
+# at 13061
+#260827 17:35:45 server id 1  end_log_pos 13176 CRC32 0x0a5a5153 	Table_map: `ruoyi-vue-pro`.`system_menu` mapped to number 114
+# has_generated_invisible_primary_key=0
+# at 13176
+#260827 17:35:45 server id 1  end_log_pos 13299 CRC32 0xba3d6482 	Write_rows: table id 114 flags: STMT_END_F
+### INSERT INTO `ruoyi-vue-pro`.`system_menu`
+### SET
+###   @1=2100 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2='ËÅäÂ§©' /* VARSTRING(200) meta=200 nullable=0 is_null=0 */
+###   @3='' /* VARSTRING(400) meta=400 nullable=0 is_null=0 */
+###   @4=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @5=99 /* INT meta=0 nullable=0 is_null=0 */
+###   @6=0 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @7='im/home' /* VARSTRING(800) meta=800 nullable=1 is_null=0 */
+###   @8='ep:chat-dot-round' /* VARSTRING(400) meta=400 nullable=1 is_null=0 */
+###   @9='' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+###   @10='' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+###   @11=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @12=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @13=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @16='2026-08-27 17:35:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @17='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @18='2026-08-27 17:35:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @19=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+# at 13299
+#260827 17:35:45 server id 1  end_log_pos 13330 CRC32 0x657a37a0 	Xid = 5958
+COMMIT/*!*/;
+# at 13330
+#260827 17:37:31 server id 1  end_log_pos 13409 CRC32 0x873f5d6b 	Anonymous_GTID	last_committed=22	sequence_number=23	rbr_only=yes	original_committed_timestamp=1787823451813981	immediate_commit_timestamp=1787823451813981	transaction_length=539
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787823451813981 (2026-08-27 17:37:31.813981 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787823451813981 (2026-08-27 17:37:31.813981 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787823451813981*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 13409
+#260827 17:37:31 server id 1  end_log_pos 13510 CRC32 0x22846e6a 	Query	thread_id=8	exec_time=0	error_code=0
+SET TIMESTAMP=1787823451/*!*/;
+BEGIN
+/*!*/;
+# at 13510
+#260827 17:37:31 server id 1  end_log_pos 13625 CRC32 0xf9c976ea 	Table_map: `ruoyi-vue-pro`.`system_menu` mapped to number 114
+# has_generated_invisible_primary_key=0
+# at 13625
+#260827 17:37:31 server id 1  end_log_pos 13838 CRC32 0x02807d70 	Update_rows: table id 114 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`system_menu`
+### WHERE
+###   @1=2100 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2='ËÅäÂ§©' /* VARSTRING(200) meta=200 nullable=0 is_null=0 */
+###   @3='' /* VARSTRING(400) meta=400 nullable=0 is_null=0 */
+###   @4=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @5=99 /* INT meta=0 nullable=0 is_null=0 */
+###   @6=0 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @7='im/home' /* VARSTRING(800) meta=800 nullable=1 is_null=0 */
+###   @8='ep:chat-dot-round' /* VARSTRING(400) meta=400 nullable=1 is_null=0 */
+###   @9='' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+###   @10='' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+###   @11=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @12=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @13=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @16='2026-08-27 17:35:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @17='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @18='2026-08-27 17:35:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @19=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+### SET
+###   @1=2100 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2='ËÅäÂ§©' /* VARSTRING(200) meta=200 nullable=0 is_null=0 */
+###   @3='' /* VARSTRING(400) meta=400 nullable=0 is_null=0 */
+###   @4=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @5=99 /* INT meta=0 nullable=0 is_null=0 */
+###   @6=0 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @7='/im/home' /* VARSTRING(800) meta=800 nullable=1 is_null=0 */
+###   @8='ep:chat-dot-round' /* VARSTRING(400) meta=400 nullable=1 is_null=0 */
+###   @9='' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+###   @10='' /* VARSTRING(1020) meta=1020 nullable=1 is_null=0 */
+###   @11=0 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @12=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @13=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @16='2026-08-27 17:35:45' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @17='1' /* VARSTRING(256) meta=256 nullable=1 is_null=0 */
+###   @18='2026-08-27 17:37:31' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @19=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+# at 13838
+#260827 17:37:31 server id 1  end_log_pos 13869 CRC32 0xf54db9d7 	Xid = 6082
+COMMIT/*!*/;
+# at 13869
+#260827 17:53:30 server id 1  end_log_pos 13948 CRC32 0x049614b1 	Anonymous_GTID	last_committed=23	sequence_number=24	rbr_only=yes	original_committed_timestamp=1787824410503137	immediate_commit_timestamp=1787824410503137	transaction_length=995
+/*!50718 SET TRANSACTION ISOLATION LEVEL READ COMMITTED*//*!*/;
+# original_commit_timestamp=1787824410503137 (2026-08-27 17:53:30.503137 ÷–π˙±Í◊º ±º‰)
+# immediate_commit_timestamp=1787824410503137 (2026-08-27 17:53:30.503137 ÷–π˙±Í◊º ±º‰)
+/*!80001 SET @@session.original_commit_timestamp=1787824410503137*//*!*/;
+/*!80014 SET @@session.original_server_version=80046*//*!*/;
+/*!80014 SET @@session.immediate_server_version=80046*//*!*/;
+SET @@SESSION.GTID_NEXT= 'ANONYMOUS'/*!*/;
+# at 13948
+#260827 17:53:30 server id 1  end_log_pos 14049 CRC32 0xd964fe28 	Query	thread_id=20	exec_time=0	error_code=0
+SET TIMESTAMP=1787824410/*!*/;
+BEGIN
+/*!*/;
+# at 14049
+#260827 17:53:30 server id 1  end_log_pos 14167 CRC32 0x40933822 	Table_map: `ruoyi-vue-pro`.`system_oauth2_access_token` mapped to number 107
+# has_generated_invisible_primary_key=0
+# at 14167
+#260827 17:53:30 server id 1  end_log_pos 14521 CRC32 0xea802b20 	Update_rows: table id 107 flags: STMT_END_F
+### UPDATE `ruoyi-vue-pro`.`system_oauth2_access_token`
+### WHERE
+###   @1=118500 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='54303ec824914cecbe17bf19f96131f5' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='91216749cff24298877cfaf12b176755' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 17:52:23' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 17:22:23' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 17:22:23' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+### SET
+###   @1=118500 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='54303ec824914cecbe17bf19f96131f5' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='91216749cff24298877cfaf12b176755' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 17:52:23' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 17:22:23' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 17:53:30' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'1' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 14521
+#260827 17:53:30 server id 1  end_log_pos 14639 CRC32 0x2397c088 	Table_map: `ruoyi-vue-pro`.`system_oauth2_access_token` mapped to number 107
+# has_generated_invisible_primary_key=0
+# at 14639
+#260827 17:53:30 server id 1  end_log_pos 14833 CRC32 0xc86b5db7 	Write_rows: table id 107 flags: STMT_END_F
+### INSERT INTO `ruoyi-vue-pro`.`system_oauth2_access_token`
+### SET
+###   @1=118501 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @2=253 /* LONGINT meta=0 nullable=0 is_null=0 */
+###   @3=2 /* TINYINT meta=0 nullable=0 is_null=0 */
+###   @4='{"nickname":"hyadmin","deptId":"122"}' /* VARSTRING(2048) meta=2048 nullable=0 is_null=0 */
+###   @5='6bd050f8a45342fe88fccbb934245753' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @6='91216749cff24298877cfaf12b176755' /* VARSTRING(128) meta=128 nullable=0 is_null=0 */
+###   @7='default' /* VARSTRING(1020) meta=1020 nullable=0 is_null=0 */
+###   @8=NULL /* VARSTRING(1020) meta=1020 nullable=1 is_null=1 */
+###   @9='2026-08-27 18:23:30' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @10=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @11='2026-08-27 17:53:30' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @12=NULL /* VARSTRING(256) meta=256 nullable=1 is_null=1 */
+###   @13='2026-08-27 17:53:30' /* DATETIME(0) meta=0 nullable=0 is_null=0 */
+###   @14=b'0' /* BIT(1) meta=1 nullable=0 is_null=0 */
+###   @15=1 /* LONGINT meta=0 nullable=0 is_null=0 */
+# at 14833
+#260827 17:53:30 server id 1  end_log_pos 14864 CRC32 0x6341d81d 	Xid = 7249
+COMMIT/*!*/;
+SET @@SESSION.GTID_NEXT= 'AUTOMATIC' /* added by mysqlbinlog */ /*!*/;
+DELIMITER ;
+# End of log file
+/*!50003 SET COMPLETION_TYPE=@OLD_COMPLETION_TYPE*/;
+/*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=0*/;
